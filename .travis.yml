@@ -1,4 +1,4 @@
-language: generic 
+language: generic
 sudo: required
 
 services:
@@ -16,7 +16,7 @@ after_succes:
   - docker build -t josuevora/multi-server ./client
   - docker build -t josuevora/multi-worker ./client
 
-#Log in to docker CLI
+  #Log in to docker CLI
   -echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-std-in
 
   - docker push josuevora/multi-client
