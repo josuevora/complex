@@ -17,7 +17,7 @@ after_succes:
   - docker build -t josuevora/multi-worker ./client
 
   #Log in to docker CLI
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-std-in
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   - docker push josuevora/multi-client
   - docker push josuevora/multi-nginx
