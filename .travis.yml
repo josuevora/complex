@@ -8,7 +8,7 @@ before_install:
   - docker build -t josuevora/react-test -f ./client/Dockerfile.dev
 
 script:
-  docker run -e CI=true josuevora/react-test npm test
+  - docker run -e CI=true josuevora/react-test npm test
 
 after_succes:
   - docker build -t josuevora/multi-client ./client
@@ -17,7 +17,7 @@ after_succes:
   - docker build -t josuevora/multi-worker ./client
 
   #Log in to docker CLI
-  -echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-std-in
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-std-in
 
   - docker push josuevora/multi-client
   - docker push josuevora/multi-nginx
